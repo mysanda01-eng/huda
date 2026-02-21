@@ -490,6 +490,7 @@ export default function App() {
               <video
                 controls
                 preload="metadata"
+                crossOrigin="anonymous"
                 width="100%"
                 height="100%"
                 className="video-player"

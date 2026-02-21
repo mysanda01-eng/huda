@@ -1543,6 +1543,10 @@ button:focus {
     min-height: 240px;
   }
 
+  .video-overlay {
+    display: none !important;
+  }
+
   .video-title {
     font-size: 1.1rem;
     padding: 1rem;
