@@ -35,7 +35,7 @@ const VIDEOS = [
   { src: '/video/9.mp4', title: 'Forever with you' },
   { src: '/video/10.mp4', title: 'My greatest joy' },
   { src: '/video/11.mp4', title: 'Love in motion' },
-  { src: '/video/WhatsApp Video.mp4', title: 'You are my everything' },
+  { src: '/video/WhatsApp Video 2026-02-20 at 9.48.04 PM.mp4', title: 'You are my everything' },
 ]
 
 const GIFTS = [
