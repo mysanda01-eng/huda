@@ -456,8 +456,8 @@
 
 .video-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-auto-rows: 320px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: auto;
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -474,6 +474,8 @@
   opacity: 0;
   animation: slideUp 0.6s ease-out forwards;
   transition: all 0.3s ease;
+  aspect-ratio: 16 / 9;
+  min-height: 280px;
 }
 
 .video-item.tall {
@@ -1522,12 +1524,12 @@ button:focus {
 
   .video-gallery-grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: 250px;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
-  .video-item.tall {
-    grid-row: span 1;
+  .video-item {
+    aspect-ratio: 16 / 9;
+    min-height: 240px;
   }
 
   .video-title {
