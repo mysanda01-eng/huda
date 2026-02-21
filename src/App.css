@@ -1690,6 +1690,11 @@ button:focus {
   object-fit: cover;
 }
 
+.video-simple-player {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .video-simple-title {
   position: absolute;
   bottom: 0;

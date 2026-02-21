@@ -25,11 +25,12 @@ export default function Videos({ onBack }) {
           <div key={idx} className="video-simple-item">
             <video
               controls
-              width="100%"
-              height="100%"
+              controlsList="nodownload"
+              autoplay="false"
               preload="metadata"
               crossOrigin="anonymous"
-              ref={(el) => videoRefs.current[idx] = el}
+              className="video-simple-player"
+              onError={(e) => console.log(`Video ${idx} error:`, e.target.error)}
             >
               <source src={video.src} type="video/mp4" />
               Your browser does not support the video tag.
