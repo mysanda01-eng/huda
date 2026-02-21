@@ -11,31 +11,31 @@ const config = {
   hiddenPassword: 'huda',
   giftUnlockDate: '2026-03-05',
   nextBirthdayDate: '2027-02-27',
-  backgroundMusicPath: './audio/something special.mpeg',
-  specialAudioPath: './audio/WhatsApp Video 2026-02-20 at 9.53.31 PM.mp4',
+  backgroundMusicPath: '/audio/something special.mpeg',
+  specialAudioPath: '/audio/WhatsApp Video 2026-02-20 at 9.53.31 PM.mp4',
   backgroundMusicVolume: 0.2,
   specialAudioVolume: 0.7,
 }
 
 const IMAGES = [
-  { src: './images/1.jpeg', caption: 'Every moment with you is a masterpiece' },
-  { src: './images/2.jpeg', caption: 'Your smile is my favorite view' },
-  { src: './images/3.jpeg', caption: 'Forever starts with you' },
-  { src: './images/4.jpeg', caption: 'In your eyes, I find my home' },
-  { src: './images/5.jpeg', caption: 'A love story written in moments' },
-  { src: './images/6.jpeg', caption: 'You complete me' },
-  { src: './images/WhatsApp Image.jpeg', caption: 'My greatest blessing' },
+  { src: '/images/1.jpeg', caption: 'Every moment with you is a masterpiece' },
+  { src: '/images/2.jpeg', caption: 'Your smile is my favorite view' },
+  { src: '/images/3.jpeg', caption: 'Forever starts with you' },
+  { src: '/images/4.jpeg', caption: 'In your eyes, I find my home' },
+  { src: '/images/5.jpeg', caption: 'A love story written in moments' },
+  { src: '/images/6.jpeg', caption: 'You complete me' },
+  { src: '/images/WhatsApp Image.jpeg', caption: 'My greatest blessing' },
 ]
 
 const VIDEOS = [
-  { src: './video/5.mp4', title: 'Moments with you' },
-  { src: './video/6.mp4', title: 'Your laugh is my favorite' },
-  { src: './video/7.mp4', title: 'Us against the world' },
-  { src: './video/8.mp4', title: 'Dancing in your eyes' },
-  { src: './video/9.mp4', title: 'Forever with you' },
-  { src: './video/10.mp4', title: 'My greatest joy' },
-  { src: './video/11.mp4', title: 'Love in motion' },
-  { src: './video/WhatsApp Video.mp4', title: 'You are my everything' },
+  { src: '/video/5.mp4', title: 'Moments with you' },
+  { src: '/video/6.mp4', title: 'Your laugh is my favorite' },
+  { src: '/video/7.mp4', title: 'Us against the world' },
+  { src: '/video/8.mp4', title: 'Dancing in your eyes' },
+  { src: '/video/9.mp4', title: 'Forever with you' },
+  { src: '/video/10.mp4', title: 'My greatest joy' },
+  { src: '/video/11.mp4', title: 'Love in motion' },
+  { src: '/video/WhatsApp Video.mp4', title: 'You are my everything' },
 ]
 
 const GIFTS = [
@@ -356,7 +356,7 @@ export default function App() {
       <audio ref={specialAudioRef} />
 
       {/* Landing Section with Picture 3 Background */}
-      <section id="landing" className="landing" style={{backgroundImage: 'url(./images/3.jpeg)'}}>
+      <section id="landing" className="landing" style={{backgroundImage: 'url(/images/3.jpeg)'}}>
         <div className="landing-overlay">
           <h1 className="landing-title">Happy Birthday</h1>
           <p className="landing-subtitle">To someone extraordinary</p>
