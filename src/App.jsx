@@ -4,6 +4,7 @@ import FullscreenGallery from './components/FullscreenGallery'
 import Confetti from './components/Confetti'
 import VolumeControl from './components/VolumeControl'
 import GiftProgressBar from './components/GiftProgressBar'
+import Videos from './components/Videos'
 import './App.css'
 
 const config = {
@@ -55,6 +56,7 @@ const LOVE_PARAGRAPHS = [
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false)
+  const [showVideosPage, setShowVideosPage] = useState(false)
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [showHiddenGate, setShowHiddenGate] = useState(false)
@@ -325,6 +327,10 @@ export default function App() {
     )
   }
 
+  if (showVideosPage) {
+    return <Videos onBack={() => setShowVideosPage(false)} />
+  }
+
   if (showHiddenPage) {
     return (
       <div className="hidden-page">
@@ -478,36 +484,15 @@ export default function App() {
         </div>
       </section>
 
-      {/* Video Gallery Section */}
+      {/* Video Gallery Section - Navigate to separate page */}
       <section id="videos" className="video-gallery-section">
         <div className="section-title">For You</div>
-        <div className="video-gallery-grid">
-          {VIDEOS.map((video, idx) => (
-            <div
-              key={idx}
-              className="video-item"
-            >
-              <video
-                controls
-                preload="metadata"
-                crossOrigin="anonymous"
-                width="100%"
-                height="100%"
-                className="video-player"
-                ref={(el) => videoRefs.current[idx] = el}
-                data-video-id={idx}
-                aria-label={`Video ${idx + 1}`}
-              >
-                <source src={video.src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-overlay">
-                <div className="video-title">{video.title}</div>
-                <div className="play-icon">▶</div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <button 
+          onClick={() => setShowVideosPage(true)}
+          className="videos-nav-btn"
+        >
+          View Videos ▶
+        </button>
       </section>
 
       {/* Special Audio Button */}
