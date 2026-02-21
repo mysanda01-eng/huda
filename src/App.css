@@ -127,12 +127,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(148, 51, 82, 0.3) 0%,
-    rgba(139, 58, 82, 0.6) 100%
-  );
+  background: none;
   pointer-events: none;
+  display: none;
 }
 
 .landing-overlay {
@@ -279,8 +276,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(139, 58, 82, 0.8) 0%, rgba(148, 51, 82, 0.85) 100%);
-  display: flex;
+  background: none;
+  display: none;
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -303,7 +300,8 @@
 }
 
 .gallery-item:hover .gallery-overlay {
-  opacity: 1;
+  opacity: 0;
+  display: none;
 }
 
 /* ===== WHY I LOVE YOU SECTION ===== */
@@ -479,6 +477,46 @@
   transform: translateY(-1px);
 }
 
+/* ===== 19 REASONS SECTION ===== */
+.nineteen-reasons-section {
+  display: block;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(244, 181, 200, 0.1) 0%, rgba(232, 160, 182, 0.15) 100%);
+  text-align: center;
+}
+
+.nineteen-intro {
+  font-size: 1.1rem;
+  color: var(--dusty-rose);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.reasons-nav-btn {
+  background: linear-gradient(135deg, var(--soft-rose) 0%, var(--deeper-rose) 100%);
+  color: white;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(139, 58, 82, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.reasons-nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(139, 58, 82, 0.4);
+  background: linear-gradient(135deg, var(--deeper-rose) 0%, var(--soft-rose) 100%);
+}
+
+.reasons-nav-btn:active {
+  transform: translateY(-1px);
+}
+
 .video-item {
   display: block;
   position: relative;
@@ -511,8 +549,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(139, 58, 82, 0.8) 0%, rgba(148, 51, 82, 0.85) 100%);
-  display: flex;
+  background: none;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -545,7 +583,8 @@
 }
 
 .video-item:hover .video-overlay {
-  opacity: 1;
+  opacity: 0;
+  display: none;
 }
 
 @keyframes pulse {
@@ -1755,6 +1794,142 @@ button:focus {
   .videos-nav-btn {
     padding: 1rem 2rem;
     font-size: 1rem;
+  }
+}
+
+/* ===== 19 REASONS PAGE ===== */
+.nineteen-page {
+  min-height: 100vh;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(135deg, rgba(232, 160, 182, 0.15) 0%, rgba(244, 181, 200, 0.1) 100%);
+}
+
+.nineteen-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.nineteen-header h1 {
+  font-size: 2.5rem;
+  color: var(--deeper-rose);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.nineteen-header p {
+  font-size: 1.1rem;
+  color: var(--dusty-rose);
+  font-weight: 500;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reason-card {
+  background: rgba(255, 250, 248, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--soft-rose);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(139, 58, 82, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reason-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--deeper-rose), var(--dusty-rose));
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(139, 58, 82, 0.15);
+  border-color: var(--dusty-rose);
+}
+
+.reason-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--deeper-rose), var(--dusty-rose));
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.reason-text {
+  color: var(--dark-text);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nineteen-header h1 {
+    font-size: 2rem;
+  }
+
+  .nineteen-header p {
+    font-size: 1rem;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .reason-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nineteen-page {
+    padding: 2rem 0.8rem 1rem;
+  }
+
+  .nineteen-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .nineteen-header p {
+    font-size: 0.95rem;
+  }
+
+  .reasons-grid {
+    gap: 1rem;
+  }
+
+  .reason-card {
+    padding: 1.2rem;
+  }
+
+  .reason-number {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .reason-text {
+    font-size: 0.95rem;
   }
 }
 

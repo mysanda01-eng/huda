@@ -5,6 +5,7 @@ import Confetti from './components/Confetti'
 import VolumeControl from './components/VolumeControl'
 import GiftProgressBar from './components/GiftProgressBar'
 import Videos from './components/Videos'
+import NineTeenReasons from './components/NineTeenReasons'
 import './App.css'
 
 const config = {
@@ -57,6 +58,7 @@ const LOVE_PARAGRAPHS = [
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false)
   const [showVideosPage, setShowVideosPage] = useState(false)
+  const [showNineTeenPage, setShowNineTeenPage] = useState(false)
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [showHiddenGate, setShowHiddenGate] = useState(false)
@@ -331,6 +333,10 @@ export default function App() {
     return <Videos onBack={() => setShowVideosPage(false)} />
   }
 
+  if (showNineTeenPage) {
+    return <NineTeenReasons onBack={() => setShowNineTeenPage(false)} />
+  }
+
   if (showHiddenPage) {
     return (
       <div className="hidden-page">
@@ -492,6 +498,18 @@ export default function App() {
           className="videos-nav-btn"
         >
           View Videos ▶
+        </button>
+      </section>
+
+      {/* 19 Reasons Why I Love You Section */}
+      <section id="nineteen-reasons" className="nineteen-reasons-section">
+        <div className="section-title">19 Reasons Why I Love You</div>
+        <p className="nineteen-intro">As you turn 19, here are 19 reasons you mean everything to me</p>
+        <button 
+          onClick={() => setShowNineTeenPage(true)}
+          className="reasons-nav-btn"
+        >
+          View 19 Reasons ♥
         </button>
       </section>
 

@@ -4,7 +4,8 @@
   "framework": "vite",
   "regions": ["iad1"],
   "env": {
-    "VITE_APP_TITLE": "Huda Birthday"
+    "VITE_APP_TITLE": "Huda Birthday",
+    "VITE_BASE_PATH": "/"
   },
   "headers": [
     {
