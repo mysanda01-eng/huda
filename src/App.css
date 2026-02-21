@@ -450,20 +450,23 @@
 
 /* ===== VIDEO GALLERY SECTION ===== */
 .video-gallery-section {
+  display: block;
   padding: 5rem 2rem;
   background: linear-gradient(135deg, rgba(232, 160, 182, 0.15) 0%, rgba(244, 181, 200, 0.1) 100%);
 }
 
 .video-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .video-item {
+  display: block;
   position: relative;
   border-radius: 16px;
   overflow: hidden;
@@ -1525,11 +1528,14 @@ button:focus {
 
   .video-gallery-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 0 1rem;
   }
 
   .video-item {
-    height: 200px !important;
+    display: block;
+    height: 240px !important;
+    min-height: 240px;
   }
 
   .video-title {
