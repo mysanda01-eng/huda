@@ -89,16 +89,18 @@ export default function App() {
     }
   }, [])
 
-  // Initialize audio
+  // Initialize audio with better error handling
   useEffect(() => {
     if (bgMusicRef.current) {
       bgMusicRef.current.src = config.backgroundMusicPath
       bgMusicRef.current.volume = backgroundMusicVolume
       bgMusicRef.current.loop = true
+      bgMusicRef.current.onerror = (e) => console.log('Background music error:', e)
     }
     if (specialAudioRef.current) {
       specialAudioRef.current.src = config.specialAudioPath
       specialAudioRef.current.volume = config.specialAudioVolume
+      specialAudioRef.current.onerror = (e) => console.log('Special audio error:', e)
     }
   }, [backgroundMusicVolume])
 
@@ -253,9 +255,14 @@ export default function App() {
     if (bgMusicRef.current) {
       if (isBackgroundMusicPlaying) {
         fadeAudio(bgMusicRef.current, backgroundMusicVolume, 0, 500)
-        setTimeout(() => bgMusicRef.current.pause(), 500)
+        setTimeout(() => {
+          bgMusicRef.current.pause()
+        }, 500)
       } else {
-        bgMusicRef.current.play()
+        bgMusicRef.current.currentTime = 0
+        bgMusicRef.current.play().catch((error) => {
+          console.log('Play error:', error)
+        })
         fadeAudio(bgMusicRef.current, 0, backgroundMusicVolume, 500)
       }
       setIsBackgroundMusicPlaying(!isBackgroundMusicPlaying)
@@ -352,8 +359,8 @@ export default function App() {
     <div id="main" className="app">
       <FloatingHearts />
 
-      <audio ref={bgMusicRef} />
-      <audio ref={specialAudioRef} />
+      <audio ref={bgMusicRef} crossOrigin="anonymous" preload="metadata" />
+      <audio ref={specialAudioRef} crossOrigin="anonymous" preload="metadata" />
 
       {/* Landing Section with Picture 3 Background */}
       <section id="landing" className="landing" style={{backgroundImage: 'url(/images/3.jpeg)'}}>
