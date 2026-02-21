@@ -1423,4 +1423,192 @@ button:focus {
     height: 35px;
     font-size: 1.2rem;
   }
+
+  /* Mobile optimizations */
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .landing-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1rem;
+  }
+
+  .landing-text {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gate-container {
+    padding: 1.5rem 1.2rem;
+    width: 95%;
+  }
+
+  .gate-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .gate-container p {
+    font-size: 0.9rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    gap: 1rem;
+  }
+
+  .gallery-item.tall,
+  .gallery-item.wide {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  .gallery-caption {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+
+  .love-paragraph {
+    padding: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .gift-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .gift-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gift-card p {
+    font-size: 0.95rem;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .countdown-item {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .countdown-value {
+    font-size: 1.3rem;
+  }
+
+  .countdown-item .countdown-label {
+    font-size: 0.75rem;
+  }
+
+  .video-gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    gap: 1rem;
+  }
+
+  .video-item.tall {
+    grid-row: span 1;
+  }
+
+  .video-title {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .play-icon {
+    font-size: 2.5rem;
+  }
+
+  .hidden-letter-content,
+  .birthday-letter {
+    padding: 1.5rem 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hidden-gate {
+    padding: 2rem 1.5rem;
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .hidden-gate h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .special-audio-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .audio-control {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .volume-control-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .now-playing {
+    bottom: 65px;
+    right: 15px;
+  }
+
+  /* Touch-friendly improvements */
+  button,
+  .gift-card,
+  .gallery-item,
+  .video-item {
+    min-height: 44px;
+  }
+
+  .gallery-item,
+  .video-item {
+    border-radius: 8px;
+  }
+
+  /* Prevent zoom on input focus */
+  input {
+    font-size: 16px;
+  }
+
+  /* Better scrolling */
+  ::scrollbar {
+    width: 6px;
+  }
+
+  ::scrollbar-track {
+    background: rgba(244, 181, 200, 0.1);
+  }
+
+  ::scrollbar-thumb {
+    background: var(--dusty-rose);
+    border-radius: 3px;
+  }
 }
