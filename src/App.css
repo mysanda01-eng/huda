@@ -1479,6 +1479,10 @@ button:focus {
     grid-column: span 1;
   }
 
+  .video-item.tall {
+    grid-row: span 1;
+  }
+
   .gallery-caption {
     font-size: 1.1rem;
     padding: 1.5rem;
