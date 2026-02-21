@@ -17,6 +17,13 @@ const config = {
   specialAudioPath: '/audio/WhatsApp Video 2026-02-20 at 9.53.31 PM.mp4',
   backgroundMusicVolume: 0.2,
   specialAudioVolume: 0.7,
+  // EmailJS Configuration - Update these with your EmailJS credentials
+  emailJS: {
+    serviceID: 'service_huda_birthday', // Create this in EmailJS console
+    templateID: 'template_gift_selection', // Create this in EmailJS console
+    publicKey: '', // Get from EmailJS account settings - ADD YOUR PUBLIC KEY HERE
+    recipientEmail: 'timelessbyemjay@gmail.com',
+  },
 }
 
 const IMAGES = [
@@ -90,6 +97,13 @@ export default function App() {
       const index = parseInt(saved)
       setSelectedGift(index)
       setGiftMessage("I'm looking forward to that day.")
+    }
+  }, [])
+
+  // Initialize EmailJS
+  useEffect(() => {
+    if (config.emailJS.publicKey && window.emailjs) {
+      window.emailjs.init(config.emailJS.publicKey)
     }
   }, [])
 
@@ -257,6 +271,22 @@ export default function App() {
     setSelectedGift(index)
     setGiftMessage("I'm looking forward to that day.")
     localStorage.setItem('selectedGift', index)
+    
+    // Send email notification
+    if (config.emailJS.publicKey && window.emailjs) {
+      const templateParams = {
+        to_email: config.emailJS.recipientEmail,
+        gift_name: GIFTS[index].name,
+        gift_emoji: GIFTS[index].emoji,
+        selection_time: new Date().toLocaleString(),
+      }
+      
+      window.emailjs.send(
+        config.emailJS.serviceID,
+        config.emailJS.templateID,
+        templateParams
+      ).catch(error => console.log('Email sending failed:', error))
+    }
   }, [])
 
   const toggleBackgroundMusic = () => {
@@ -582,6 +612,8 @@ export default function App() {
       {/* Footer */}
       <footer className="app-footer">
         <p>Built with intention.</p>
-      </footer>    </div>
+        <p className="footer-accent">And I'd build this again. Every year.</p>
+      </footer>
+    </div>
   )
 }
