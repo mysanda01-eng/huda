@@ -485,8 +485,7 @@ export default function App() {
           {VIDEOS.map((video, idx) => (
             <div
               key={idx}
-              className={`video-item ${idx % 4 === 3 ? 'tall' : ''}`}
-              style={{animationDelay: `${idx * 100}ms`}}
+              className="video-item"
             >
               <video
                 controls
