@@ -225,7 +225,23 @@
   text-align: center;
   margin-bottom: 3rem;
   text-shadow: 2px 2px 4px rgba(139, 58, 82, 0.1);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dusty-rose), transparent);
 }
 
 /* ===== GALLERY SECTION ===== */
@@ -306,73 +322,122 @@
 
 /* ===== WHY I LOVE YOU SECTION ===== */
 .why-love-section {
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   background: linear-gradient(135deg, rgba(232, 160, 182, 0.15) 0%, rgba(244, 181, 200, 0.1) 100%);
+  position: relative;
+}
+
+.why-love-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 58, 82, 0.1), transparent);
 }
 
 .love-paragraphs {
   max-width: 900px;
   margin: 0 auto;
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .love-paragraph {
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(244, 181, 200, 0.3) 0%, rgba(232, 160, 182, 0.2) 100%);
-  border-radius: 12px;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(244, 181, 200, 0.25) 0%, rgba(232, 160, 182, 0.15) 100%);
+  border-radius: 16px;
   border-left: 4px solid var(--deeper-rose);
   color: var(--dark-text);
   line-height: 1.8;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  letter-spacing: 0.3px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(139, 58, 82, 0.08);
+  box-shadow: var(--glow-soft);
   transform: translateY(20px);
   opacity: 0;
-  animation: slideUp 0.6s ease-out forwards;
-  transition: all var(--transition);
+  animation: slideUp 0.7s ease-out forwards;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 500;
 }
 
+.love-paragraph:nth-child(1) { animation-delay: 0.1s; }
+.love-paragraph:nth-child(2) { animation-delay: 0.2s; }
+.love-paragraph:nth-child(3) { animation-delay: 0.3s; }
+.love-paragraph:nth-child(4) { animation-delay: 0.4s; }
+.love-paragraph:nth-child(5) { animation-delay: 0.5s; }
+
 .love-paragraph:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 35px rgba(139, 58, 82, 0.15);
-  background: linear-gradient(135deg, rgba(244, 181, 200, 0.4) 0%, rgba(232, 160, 182, 0.3) 100%);
-}
+  transform: translateY(-6px);
+  box-shadow: var(--glow-medium);
+  background: linear-gradient(135deg, rgba(244, 181, 200, 0.35) 0%, rgba(232, 160, 182, 0.25) 100%);
+}\n
 
 /* ===== GIFT SECTION ===== */
 .gift-section {
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   background: linear-gradient(to bottom, rgba(244, 181, 200, 0.08) 0%, var(--ivory) 100%);
+  position: relative;
+}
+
+.gift-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 58, 82, 0.1), transparent);
 }
 
 .gift-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
   max-width: 1000px;
   margin: 0 auto 3rem;
 }
 
 .gift-card {
-  padding: 2rem 1.5rem;
-  background: linear-gradient(135deg, rgba(244, 181, 200, 0.2) 0%, rgba(232, 160, 182, 0.15) 100%);
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(244, 181, 200, 0.15) 0%, rgba(232, 160, 182, 0.1) 100%);
   border: 2px solid var(--dusty-rose);
-  border-radius: 12px;
+  border-radius: 16px;
   text-align: center;
   cursor: pointer;
-  transition: all var(--transition);
-  box-shadow: 0 6px 20px rgba(139, 58, 82, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: var(--glow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(244, 181, 200, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .gift-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(139, 58, 82, 0.2);
+  transform: translateY(-8px);
+  box-shadow: var(--glow-medium);
+  border-color: var(--soft-rose);
+}
+
+.gift-card:hover::before {
+  opacity: 1;
 }
 
 .gift-card.selected {
   background: linear-gradient(135deg, var(--soft-rose) 0%, var(--dusty-rose) 100%);
   border-color: var(--deeper-rose);
+  border-width: 3px;
   color: white;
+  box-shadow: 0 0 30px rgba(139, 58, 82, 0.3);
   box-shadow: 0 15px 40px rgba(139, 58, 82, 0.3);
 }
 
@@ -390,6 +455,38 @@
 
 .gift-card.selected p {
   color: white;
+}
+
+.gift-checkmark {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  animation: scaleIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gift-card {
+  position: relative;
 }
 
 .gift-message {
@@ -616,12 +713,23 @@
   cursor: pointer;
   transition: all var(--transition);
   box-shadow: 0 10px 30px rgba(139, 58, 82, 0.2);
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(139, 58, 82, 0.2);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(139, 58, 82, 0.35);
+  }
 }
 
 .special-audio-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(139, 58, 82, 0.3);
   background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--deeper-rose) 100%);
+  animation: none;
 }
 
 /* ===== HIDDEN LINK SECTION ===== */
@@ -798,17 +906,19 @@
   z-index: 10;
   max-width: 700px;
   margin: 0 auto;
-  background: rgba(255, 250, 248, 0.95);
+  background: rgba(255, 250, 248, 0.98);
   backdrop-filter: blur(15px);
-  padding: 3rem;
-  border-radius: 16px;
+  padding: 3.5rem;
+  border-radius: 20px;
   border: 2px solid var(--soft-rose);
   box-shadow: 0 20px 60px rgba(139, 58, 82, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(244, 181, 200, 0.2);
   line-height: 2;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: var(--dark-text);
-  animation: slideUp 0.6s ease-out;
+  animation: slideUp 0.7s ease-out;
+  letter-spacing: 0.3px;
 }
 
 .hidden-letter-content p {
@@ -926,6 +1036,17 @@
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -934,6 +1055,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 0.5;
   }
 }
 
@@ -1931,5 +2063,23 @@ button:focus {
   .reason-text {
     font-size: 0.95rem;
   }
+}
+
+/* ===== FOOTER ===== */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(244, 181, 200, 0.05) 100%);
+  font-size: 0.95rem;
+  color: var(--dusty-rose);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  animation: fadeIn 1s ease-out 0.8s backwards;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 

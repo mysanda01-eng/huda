@@ -205,15 +205,19 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
-  // Fade audio
+  // Fade audio with smooth easing
   const fadeAudio = (audio, startVol, endVol, duration) => {
-    const steps = 30
+    const steps = 60
     let currentStep = 0
     const stepDuration = duration / steps
 
+    const easeInOutCubic = (t) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+    }
+
     const interval = setInterval(() => {
       currentStep++
-      const progress = currentStep / steps
+      const progress = easeInOutCubic(currentStep / steps)
       const currentVol = startVol + (endVol - startVol) * progress
       audio.volume = Math.max(0, Math.min(1, currentVol))
 
@@ -282,20 +286,26 @@ export default function App() {
 
   const playSpecialAudio = () => {
     if (!isSpecialAudioPlaying) {
-      fadeAudio(bgMusicRef.current, config.backgroundMusicVolume, 0, 300)
+      fadeAudio(bgMusicRef.current, config.backgroundMusicVolume, 0, 800)
       setTimeout(() => {
         bgMusicRef.current.pause()
         specialAudioRef.current.currentTime = 0
+        specialAudioRef.current.volume = 0
         specialAudioRef.current.play().catch(() => console.log('Could not play special audio'))
+        fadeAudio(specialAudioRef.current, 0, config.specialAudioVolume, 700)
         setIsSpecialAudioPlaying(true)
-      }, 300)
+      }, 800)
 
       specialAudioRef.current.onended = () => {
         setIsSpecialAudioPlaying(false)
-        bgMusicRef.current.currentTime = 0
-        bgMusicRef.current.play()
-        fadeAudio(bgMusicRef.current, 0, config.backgroundMusicVolume, 500)
-        setIsBackgroundMusicPlaying(true)
+        fadeAudio(specialAudioRef.current, config.specialAudioVolume, 0, 700)
+        setTimeout(() => {
+          bgMusicRef.current.currentTime = 0
+          bgMusicRef.current.volume = 0
+          bgMusicRef.current.play()
+          fadeAudio(bgMusicRef.current, 0, config.backgroundMusicVolume, 800)
+          setIsBackgroundMusicPlaying(true)
+        }, 700)
       }
     }
   }
@@ -455,6 +465,7 @@ export default function App() {
               className={`gift-card ${selectedGift === idx ? 'selected' : ''}`}
               onClick={() => selectGift(idx)}
             >
+              {selectedGift === idx && <span className="gift-checkmark">✓</span>}
               <span className="gift-emoji">{gift.emoji}</span>
               <p>{gift.name}</p>
             </div>
@@ -567,6 +578,10 @@ export default function App() {
           </div>
         )}
       </section>
-    </div>
+
+      {/* Footer */}
+      <footer className="app-footer">
+        <p>Built with intention.</p>
+      </footer>    </div>
   )
 }
