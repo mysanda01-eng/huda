@@ -16,7 +16,7 @@ export default function Videos({ onBack }) {
 
   return (
     <div className="videos-page">
-      <button className="back-btn" onClick={onBack}>← Back</button>
+      <button className="back-btn" onClick={onBack}>← Back to Home</button>
       
       <div className="videos-page-title">For You</div>
       
