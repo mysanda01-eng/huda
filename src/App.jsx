@@ -26,7 +26,7 @@ const IMAGES = [
   { src: '/images/4.jpeg', caption: 'In your eyes, I find my home' },
   { src: '/images/5.jpeg', caption: 'A love story written in moments' },
   { src: '/images/6.jpeg', caption: 'You complete me' },
-  { src: '/images/WhatsApp Image.jpeg', caption: 'My greatest blessing' },
+  { src: '/images/WhatsApp Image 2026-02-20 at 9.48.06 PM.jpeg', caption: 'My greatest blessing' },
 ]
 
 const VIDEOS = [
