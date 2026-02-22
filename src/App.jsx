@@ -486,24 +486,14 @@ export default function App() {
 
       {/* Gift Section */}
       <section id="gift" className="gift-section">
-        <div className="section-title">Choose Your Gift</div>
-        <div className="gift-cards">
-          {GIFTS.map((gift, idx) => (
-            <div
-              key={idx}
-              className={`gift-card ${selectedGift === idx ? 'selected' : ''}`}
-              onClick={() => selectGift(idx)}
-            >
-              {selectedGift === idx && <span className="gift-checkmark">✓</span>}
-              <p>{gift.name}</p>
-            </div>
-          ))}
-        </div>
-        {giftMessage && <p className="gift-message">{giftMessage}</p>}
+        <div className="section-title">Your Gift</div>
+        <p className="gift-message" style={{ fontSize: '1.2rem', textAlign: 'center', marginBottom: '3rem' }}>
+          Your mystery gift is on the way 🎁
+        </p>
 
         <GiftProgressBar 
           daysRemaining={countdown.gift.days} 
-          totalDays={12}
+          totalDays={27}
         />
 
         <div className="countdown-timer">
