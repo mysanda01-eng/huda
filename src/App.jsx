@@ -11,7 +11,7 @@ import './App.css'
 const config = {
   mainPassword: 'huda',
   hiddenPassword: 'huda',
-  giftUnlockDate: '2026-03-05',
+  giftUnlockDate: '2026-02-28',
   nextBirthdayDate: '2027-02-27',
   backgroundMusicPath: '/audio/WhatsApp Audio 2026-02-20 at 10.43.22 PM.mpeg',
   specialAudioPath: '/audio/WhatsApp Video 2026-02-20 at 9.53.31 PM.mp4',
@@ -48,10 +48,10 @@ const VIDEOS = [
 ]
 
 const GIFTS = [
-  { emoji: '🍽️', name: 'Private Birthday Dinner' },
-  { emoji: '🎢', name: 'Adventure Day' },
-  { emoji: '🌅', name: 'A Full Surprise Day' },
-  { emoji: '🎁', name: 'Mystery Gift' },
+  { name: 'Private Birthday Dinner' },
+  { name: 'Adventure Day' },
+  { name: 'A Full Surprise Day' },
+  { name: 'Mystery Gift' },
 ]
 
 const LOVE_PARAGRAPHS = [
@@ -277,7 +277,6 @@ export default function App() {
       const templateParams = {
         to_email: config.emailJS.recipientEmail,
         gift_name: GIFTS[index].name,
-        gift_emoji: GIFTS[index].emoji,
         selection_time: new Date().toLocaleString(),
       }
       
@@ -496,7 +495,6 @@ export default function App() {
               onClick={() => selectGift(idx)}
             >
               {selectedGift === idx && <span className="gift-checkmark">✓</span>}
-              <span className="gift-emoji">{gift.emoji}</span>
               <p>{gift.name}</p>
             </div>
           ))}

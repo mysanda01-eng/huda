@@ -485,12 +485,6 @@
   }
 }
 
-.gift-emoji {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-
 .gift-card p {
   font-weight: 600;
   font-size: 1.1rem;
@@ -1733,11 +1727,6 @@ button:focus {
   .gift-cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-  }
-
-  .gift-emoji {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
   }
 
   .gift-card p {
