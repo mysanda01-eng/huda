@@ -11,7 +11,7 @@ import './App.css'
 const config = {
   mainPassword: 'huda',
   hiddenPassword: 'huda',
-  giftUnlockDate: '2026-02-28',
+  giftUnlockDate: '2026-03-20',
   nextBirthdayDate: '2027-02-27',
   backgroundMusicPath: '/audio/WhatsApp Audio 2026-02-20 at 10.43.22 PM.mpeg',
   specialAudioPath: '/audio/WhatsApp Video 2026-02-20 at 9.53.31 PM.mp4',
