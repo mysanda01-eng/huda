@@ -49,7 +49,7 @@ const VIDEOS = [
 
 const GIFTS = [
   { emoji: '🍽️', name: 'Private Birthday Dinner' },
-  { emoji: '📸', name: 'Professional Couple Photoshoot' },
+  { emoji: '🎢', name: 'Adventure Day' },
   { emoji: '🌅', name: 'A Full Surprise Day' },
   { emoji: '🎁', name: 'Mystery Gift' },
 ]
